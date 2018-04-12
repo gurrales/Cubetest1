@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_213353_customerc.GetCompanyName</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>GetCompanyName</name>
+        <script><![CDATA[var GetCompanyName = Class.create();
+GetCompanyName.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	getCompanyName: function(){
+		var rec = new GlideRecord('x_213353_customerc_customercubecompany');
+		rec.get(this.getParameter('sysparm_company_name'));
+		gs.info(rec.company_name);
+		return rec.company_name + '';
+	},
+	type: 'GetCompanyName'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-04-11 11:54:48</sys_created_on>
+        <sys_id>95b92d9f4f911300f633121f9310c710</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>GetCompanyName</sys_name>
+        <sys_package display_value="CustomerCube" source="x_213353_customerc">cd21f45b4f111300f633121f9310c7e7</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CustomerCube">cd21f45b4f111300f633121f9310c7e7</sys_scope>
+        <sys_update_name>sys_script_include_95b92d9f4f911300f633121f9310c710</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-04-11 12:22:18</sys_updated_on>
+    </sys_script_include>
+</record_update>

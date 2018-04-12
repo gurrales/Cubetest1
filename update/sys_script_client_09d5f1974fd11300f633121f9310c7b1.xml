@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Client script to make manager field available after a company has been selected.</description>
+        <field>cubecompany</field>
+        <global>true</global>
+        <messages/>
+        <name>'CubeGroup' display manager aft company</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		
+		g_form.setMandatory('manager', false);
+		g_form.setVisible('manager', false);
+		return;
+	}
+	g_form.setVisible('manager', true);
+	g_form.setMandatory('manager', true);
+	/*
+	var crfh = new GlideAjax('CubeReferenceFilterHandler');
+	crfh.addParam('sysparm_name', "getReferences");
+	crfh.addParam('sysparm_company_name', newValue);
+	crfh.getXML(applyFilter);
+	
+}
+function applyFilter(response){
+	var companyName = response.responseXML.documentElement.getAttribute("answer");
+	alert(companyName);
+	g_form.
+	/*
+	var usr = new GlideRecord('sys_user');
+if(usr.get(gs.getUserID())){
+   current.addQuery('u_org_company', usr.u_org_company);
+}
+	*/
+
+	
+	//Type appropriate comment here, and begin script below
+	
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-04-11 12:40:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>09d5f1974fd11300f633121f9310c7b1</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>'CubeGroup' display manager aft company</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CustomerCube" source="x_213353_customerc">cd21f45b4f111300f633121f9310c7e7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CustomerCube">cd21f45b4f111300f633121f9310c7e7</sys_scope>
+        <sys_update_name>sys_script_client_09d5f1974fd11300f633121f9310c7b1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-04-12 07:35:07</sys_updated_on>
+        <table>x_213353_customerc_cubegroup</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Automatically populate email and userid on name change</description>
+        <field>last_name</field>
+        <global>true</global>
+        <messages/>
+        <name>'CubeUser' email and userid automation</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+	
+	//Fetch first name
+	var firstname = g_form.getValue('first_name');
+	
+	//if the first name is empty, we do not want to generate an email address.
+	if (firstname === ''){
+		return;
+	}
+	else{
+		var currentEmail = g_form.getValue('email');
+		newValue = newValue.replace(/[^a-zA-Z 0-9]+/g,"");
+		var id = firstname + '.' + newValue;
+		id = id.toLowerCase();
+		var newEmail;
+		if(currentEmail.indexOf('@') >= 0){
+			var lastToken = currentEmail.split('@')[1];
+			 newEmail = id + '@' + lastToken;
+		} else {
+			newEmail = id + '@';
+		}
+		//Removes special characters from lastname,
+		//constructs the complete string and makes all letters lower case.
+
+		//Sets the email value to the new constructed string.
+		g_form.setValue('email', newEmail);
+		g_form.setValue('user_name', id);
+		return;
+	}
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-04-11 09:31:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3ea9091f4f511300f633121f9310c71f</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>'CubeUser' email and userid automation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CustomerCube" source="x_213353_customerc">cd21f45b4f111300f633121f9310c7e7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CustomerCube">cd21f45b4f111300f633121f9310c7e7</sys_scope>
+        <sys_update_name>sys_script_client_3ea9091f4f511300f633121f9310c71f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-04-11 11:22:27</sys_updated_on>
+        <table>x_213353_customerc_cubeuser</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

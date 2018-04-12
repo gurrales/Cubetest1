@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_213353_customerc.CubeReferenceFilterHandler</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>CubeReferenceFilterHandler</name>
+        <script><![CDATA[var CubeReferenceFilterHandler = Class.create();
+CubeReferenceFilterHandler.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	getReferences: function(){
+		
+		
+		var rec = new GlideRecord('x_213353_customerc_cubeuser');
+		rec.addQuery('cubecompany', this.getParameter('sysparm_company_name'));
+		
+		rec.query();
+		var result = ""; //= company + "";
+		while(rec.next()){
+			result += rec.first_name + ", ";
+		}
+		return result + "";
+	},
+    type: 'CubeReferenceFilterHandler'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-04-11 14:14:02</sys_created_on>
+        <sys_id>4ea9c6534f151300f633121f9310c79c</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>CubeReferenceFilterHandler</sys_name>
+        <sys_package display_value="CustomerCube" source="x_213353_customerc">cd21f45b4f111300f633121f9310c7e7</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="CustomerCube">cd21f45b4f111300f633121f9310c7e7</sys_scope>
+        <sys_update_name>sys_script_include_4ea9c6534f151300f633121f9310c79c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-04-11 14:40:37</sys_updated_on>
+    </sys_script_include>
+</record_update>

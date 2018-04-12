@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_user_group" label="CubeGroup" max_length="40" name="x_213353_customerc_cubegroup" type="collection">
+        <element display="true" label="CubeCompany" max_length="32" name="cubecompany" reference="x_213353_customerc_customercubecompany" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <index name="index">
+            <element name="cubecompany"/>
+        </index>
+    </element>
+</database>

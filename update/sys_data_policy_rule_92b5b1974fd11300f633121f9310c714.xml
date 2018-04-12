@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_data_policy_rule">
+    <sys_data_policy_rule action="INSERT_OR_UPDATE">
+        <disabled>ignore</disabled>
+        <field>cubecompany</field>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_data_policy_rule</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-04-11 12:38:14</sys_created_on>
+        <sys_data_policy display_value="'CubeCompany' to Mandatory in CubeGroup">7b75fd574fd11300f633121f9310c7aa</sys_data_policy>
+        <sys_id>92b5b1974fd11300f633121f9310c714</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cubecompany</sys_name>
+        <sys_package display_value="CustomerCube" source="x_213353_customerc">cd21f45b4f111300f633121f9310c7e7</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="CustomerCube">cd21f45b4f111300f633121f9310c7e7</sys_scope>
+        <sys_update_name>sys_data_policy_rule_92b5b1974fd11300f633121f9310c714</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-04-11 12:38:14</sys_updated_on>
+        <table>x_213353_customerc_cubegroup</table>
+    </sys_data_policy_rule>
+</record_update>
